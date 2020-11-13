@@ -15,8 +15,8 @@ module.exports = {
       library: { type: "var", name: "secondary" },
       filename: "remoteEntry.js",
       exposes: {
-        SecondaryModule:
-          "./apps/secondary/src/app/secondary/secondary.module.ts",
+        "./Secondary":
+          "./apps/secondary/src/app/secondary/secondary.component.ts",
       },
       shared: {
         "@angular/core": { singleton: true },

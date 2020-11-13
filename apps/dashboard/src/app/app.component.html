@@ -11,7 +11,11 @@
       </span>
       <mat-divider></mat-divider>
       <mat-nav-list>
-        <mat-list-item *ngFor="let link of links" (click)="handleLinkClick()">
+        <mat-list-item
+          *ngFor="let link of links"
+          [routerLink]="link.path"
+          routerLinkActive="active"
+        >
           <mat-icon matListIcon>{{ link.icon }}</mat-icon>
           {{ link.title | uppercase }}
         </mat-list-item>
@@ -19,18 +23,7 @@
     </ng-container>
   </mat-sidenav>
 
-  <div class="cells-container">
-    <mat-card class="cell-wrapper">
-      <router-outlet name="primary"></router-outlet>
-
-      <ng-container></ng-container>
-    </mat-card>
-
-    <mat-card class="cell-wrapper">
-      <router-outlet name="secondary"></router-outlet>
-      <ng-container></ng-container>
-    </mat-card>
-
-    <mat-card class="cell-wrapper"> </mat-card>
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

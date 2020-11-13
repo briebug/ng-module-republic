@@ -1,25 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { loadRemoteModule } from '@bba/core-data';
 import { HomeComponent } from './home/home.component';
 
-export const ROUTES: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
-  // { path: '**', redirectTo: '/' },
-  {
-    path: "secondary",
-    outlet: "secondary",
-    loadChildren: () =>
-      loadRemoteModule({
-        remoteName: "secondary",
-        remoteEntry: "http://localhost:4203/remoteEntry.js",
-        exposedModule: "SecondaryModule",
-      }).then((m) => m.SecondaryModule),
-  },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(ROUTES)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class RoutingModule { }
