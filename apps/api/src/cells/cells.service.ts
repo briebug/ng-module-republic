@@ -12,8 +12,10 @@ const cells: Cell[] = [
     id: '1',
     title: 'Primary',
     description: '',
-    uri: 'http://localhost:4201',
-    module: 'PrimaryModule',
+    componentName: 'PrimaryComponent',
+    remoteName: 'primary',
+    uri: 'http://localhost:4202/remoteEntry.js',
+    module: './Primary',
     published: false,
     healthy: false
   },
@@ -21,8 +23,10 @@ const cells: Cell[] = [
     id: '2',
     title: 'Secondary',
     description: '',
-    uri: 'http://localhost:4202',
-    module: 'SecondaryModule',
+    componentName: 'SecondaryComponent',
+    remoteName: 'secondary',
+    uri: 'http://localhost:4203/remoteEntry.js',
+    module: './Secondary',
     published: false,
     healthy: false
   }

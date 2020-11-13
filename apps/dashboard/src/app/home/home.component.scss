@@ -1,0 +1,11 @@
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell-wrapper {
+  width: 45%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}

@@ -13,7 +13,7 @@ declare const __webpack_share_scopes__: { default: Scope };
 
 const moduleMap = {};
 
-function loadRemoteEntry(remoteEntry: string): Promise<void> {
+export function loadRemoteEntry(remoteEntry: string): Promise<void> {
   return new Promise<any>((resolve, reject) => {
     if (moduleMap[remoteEntry]) {
       resolve();
@@ -50,9 +50,9 @@ async function lookupExposedModule<T>(
 export async function loadRemoteModule(
   options: LoadRemoteModuleOptions
 ): Promise<any> {
-  await loadRemoteEntry(options.remoteEntry);
+  await loadRemoteEntry(options.uri);
   return await lookupExposedModule<any>(
     options.remoteName,
-    options.exposedModule
+    options.module
   );
 }

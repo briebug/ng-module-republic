@@ -3,7 +3,8 @@ export class CreateCellDto {
   title: string;
   description: string;
   module: string;
-  routePath: string;
+  componentName: string;
+  remoteName: string;
   uri: string;
   healthy: boolean;
   published: boolean;

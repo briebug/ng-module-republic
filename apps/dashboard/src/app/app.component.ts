@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { MicrofrontendService } from '@bba/core-data';
 
 @Component({
   selector: 'bba-root',
@@ -9,15 +7,8 @@ import { MicrofrontendService } from '@bba/core-data';
 })
 export class AppComponent {
   links = [
-    // { path: '/', icon: 'home', title: 'home' },
-    { path: '/primary', icon: 'view_module', title: 'Dashboard' },
+    { path: '/', icon: 'home', title: 'home' },
   ];
-
-  constructor(public microfrontendService: MicrofrontendService, private router: Router) {}
-
-  handleLinkClick() {
-    this.router.navigateByUrl('primary(secondary:secondary)');
-  }
 
   logout() { }
 

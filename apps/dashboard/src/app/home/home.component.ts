@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MicrofrontendService } from '@bba/core-data';
+import { CellsFacade } from '@bba/core-state';
 
 @Component({
   selector: 'bba-home',
@@ -7,8 +7,14 @@ import { MicrofrontendService } from '@bba/core-data';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  allCells$ = this.cellsFacade.allCells$;
+
+  constructor(
+    private cellsFacade: CellsFacade
+  ) {}
 
   ngOnInit(): void {
+    this.cellsFacade.loadCells();
   }
 
 }

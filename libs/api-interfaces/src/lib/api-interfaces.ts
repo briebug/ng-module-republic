@@ -4,21 +4,21 @@ export interface BaseEntity {
 export interface Cell extends BaseEntity {
   title: string;
   description: string;
+  componentName: string;
+  remoteName: string;
   uri: string;
   module: string;
-  routePath: string;
   published: boolean;
   healthy: boolean;
 }
 
-export type Microfrontend = LoadRemoteModuleOptions & {
-  displayName: string;
-  routePath: string;
-  ngModuleName: string;
+export type CellOptions = LoadRemoteModuleOptions & {
+  title: string;
+  componentName: string
 };
 
 export type LoadRemoteModuleOptions = {
-  remoteEntry: string;
+  uri: string;
   remoteName: string;
-  exposedModule: string;
+  module: string;
 };
