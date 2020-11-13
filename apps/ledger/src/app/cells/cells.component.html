@@ -1,0 +1,18 @@
+<div class="component-container">
+  <div class="list-component">
+    <bba-cells-list
+      [cells]="allCells$ | async"
+      (selected)="selectCell($event)"
+      (deleted)="deleteCell($event)"
+    >
+    </bba-cells-list>
+  </div>
+  <div class="details-component">
+    <bba-cell-details
+      [cell]="selectedCell$ | async"
+      (saved)="saveCell($event)"
+      (cancelled)="resetForm()"
+    >
+    </bba-cell-details>
+  </div>
+</div>

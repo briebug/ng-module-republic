@@ -1,0 +1,36 @@
+<bba-toolbar (logout)="logout()" (toggleSidenav)="sidenav.toggle()">
+</bba-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="true" mode="side" class="app-sidenav">
+    <ng-container>
+      <span class="logo">
+        <a [routerLink]="'/'">
+          <!-- <img src="assets/logo.png" alt="Logo" /> -->
+        </a>
+      </span>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let link of links" (click)="handleLinkClick()">
+          <mat-icon matListIcon>{{ link.icon }}</mat-icon>
+          {{ link.title | uppercase }}
+        </mat-list-item>
+      </mat-nav-list>
+    </ng-container>
+  </mat-sidenav>
+
+  <div class="cells-container">
+    <mat-card class="cell-wrapper">
+      <router-outlet name="primary"></router-outlet>
+
+      <ng-container></ng-container>
+    </mat-card>
+
+    <mat-card class="cell-wrapper">
+      <router-outlet name="secondary"></router-outlet>
+      <ng-container></ng-container>
+    </mat-card>
+
+    <mat-card class="cell-wrapper"> </mat-card>
+  </div>
+</mat-sidenav-container>

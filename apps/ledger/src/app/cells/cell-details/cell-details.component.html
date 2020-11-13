@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-title>
+    <span *ngIf="currentCell.id; else elseBlock">
+      Editing {{ originalTitle }}
+    </span>
+    <ng-template #elseBlock>
+      Select Cell
+    </ng-template>
+  </mat-card-title>
+  <form #form="ngForm" [formGroup]="cellForm" (submit)="save(form)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Title"
+          formControlName="title"
+          type="text"
+          name="title"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Description"
+          formControlName="description"
+          type="text"
+          name="description"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="URI"
+          formControlName="uri"
+          type="text"
+          name="uri"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Route Path"
+          formControlName="routePath"
+          type="text"
+          name="routePath"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Module"
+          formControlName="module"
+          type="text"
+          name="module"
+        />
+      </mat-form-field>
+      <section>
+        <mat-checkbox formControlName="published">Published</mat-checkbox>
+      </section>
+      <section>
+        <mat-checkbox formControlName="healthy">Healthy</mat-checkbox>
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        [disabled]="form.invalid"
+        type="submit"
+        mat-button
+        color="primary"
+      >
+        Save
+      </button>
+      <button type="button" mat-button (click)="form.reset(); cancelled.emit()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

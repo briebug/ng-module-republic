@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>
+    Cells
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let cell of cells"
+        class="mat-list-option"
+        (click)="selected.emit(cell)"
+      >
+        <span matLine>{{ cell.title }}</span>
+        <button
+          *ngIf="!readonly"
+          mat-icon-button
+          type="button"
+          color="warn"
+          (click)="deleted.emit(cell); $event.stopImmediatePropagation()"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
