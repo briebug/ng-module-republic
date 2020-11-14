@@ -40,6 +40,7 @@ const emptyCell: Cell = {
   description: '',
   componentName: '',
   remoteName: '',
+  visible: false,
   uri: '',
   module: '',
   published: false,

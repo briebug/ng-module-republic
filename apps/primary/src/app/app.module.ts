@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PrimaryComponent } from './primary/primary.component';
+import { MaterialModule } from '@bba/material';
 
 @NgModule({
   declarations: [AppComponent, PrimaryComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })

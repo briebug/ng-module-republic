@@ -29,6 +29,19 @@ export class CellsFacade {
     this.dispatch(CellsActions.loadCells());
   }
 
+  createCellFromLedger(cell: Cell) {
+    this.dispatch(CellsActions.createCellFromLedger({ cell }));
+  }
+
+  updateCellFromLedger(cell: Cell) {
+    this.dispatch(CellsActions.updateCellFromLedger({ cell }));
+
+  }
+
+  deleteCellFromLedger(cell: Cell) {
+    this.dispatch(CellsActions.deleteCellFromLedger({ cell }));
+  }
+
   loadCell(cellId: string) {
     this.dispatch(CellsActions.loadCell({ cellId }));
   }

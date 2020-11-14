@@ -10,6 +10,7 @@ export interface Cell extends BaseEntity {
   module: string;
   published: boolean;
   healthy: boolean;
+  visible: boolean;
 }
 
 export type CellOptions = LoadRemoteModuleOptions & {

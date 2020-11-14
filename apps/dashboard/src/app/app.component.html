@@ -9,7 +9,6 @@
           <!-- <img src="assets/logo.png" alt="Logo" /> -->
         </a>
       </span>
-      <mat-divider></mat-divider>
       <mat-nav-list>
         <mat-list-item
           *ngFor="let link of links"
@@ -20,6 +19,18 @@
           {{ link.title | uppercase }}
         </mat-list-item>
       </mat-nav-list>
+      <mat-divider></mat-divider>
+      <mat-selection-list #cells>
+        <h2 class="mat-sublist-header">Cells</h2>
+        <mat-list-option
+          *ngFor="let cell of allCells$ | async"
+          (click)="updateCellVisibility(cell)"
+          [selected]="cell.visible"
+          [value]="cell.visible"
+        >
+          {{ cell.title }}
+        </mat-list-option>
+      </mat-selection-list>
     </ng-container>
   </mat-sidenav>
 

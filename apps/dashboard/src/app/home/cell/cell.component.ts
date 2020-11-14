@@ -23,7 +23,8 @@ export class CellComponent implements OnChanges {
     this.viewContainer.clear();
 
     const component = await loadRemoteModule(this.cell)
-      .then(m => m[this.cell.componentName]);
+      .then(m => m[this.cell.componentName])
+      .catch(err => console.log(err))
 
     const factory = this.cfr.resolveComponentFactory(component);
 

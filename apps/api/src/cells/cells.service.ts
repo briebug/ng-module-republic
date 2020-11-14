@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCellDto } from './dto/create-cell.dto';
 import { UpdateCellDto } from './dto/update-cell.dto';
 import { WebSocketServer } from '@nestjs/websockets';
@@ -17,7 +17,8 @@ const cells: Cell[] = [
     uri: 'http://localhost:4202/remoteEntry.js',
     module: './Primary',
     published: false,
-    healthy: false
+    healthy: false,
+    visible: false
   },
   {
     id: '2',
@@ -28,7 +29,8 @@ const cells: Cell[] = [
     uri: 'http://localhost:4203/remoteEntry.js',
     module: './Secondary',
     published: false,
-    healthy: false
+    healthy: false,
+    visible: false
   }
 ]
 
@@ -43,8 +45,9 @@ export class CellsService {
   }
 
   create(createCellDto: CreateCellDto) {
-    this.server.emit('create', createCellDto);
-    return this.cellService.create(createCellDto);
+    const createdCell = this.cellService.create(createCellDto);
+    this.server.emit('create', createdCell);
+    return createdCell
   }
 
   findAll() {
@@ -63,8 +66,11 @@ export class CellsService {
 
   remove(id: string) {
     const deletedCell = this.cellService.get(id);
-    if (deletedCell) this.cellService.delete(id);
-    this.server.emit('delete', deletedCell);
-    return deletedCell;
+    if (deletedCell) {
+      this.cellService.delete(id);
+      this.server.emit('delete', deletedCell);
+      return deletedCell;
+    }
+    return new NotFoundException();
   }
 }
