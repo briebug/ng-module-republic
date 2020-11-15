@@ -38,9 +38,9 @@ export class CellDetailsComponent {
       remoteName: ['', Validators.required],
       uri: ['', Validators.required],
       module: ['', Validators.required],
-      healthy: [false],
-      published: [false],
-      visible: [false]
+      healthy: [true],
+      published: [true],
+      visible: [true]
     });
   }
 }

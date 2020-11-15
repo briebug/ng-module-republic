@@ -50,7 +50,7 @@ const emptyCell: Cell = {
   uri: '',
   module: '',
   published: false,
-  healthy: false
+  healthy: true
 };
 
 export const getSelectedCell = createSelector(

@@ -15,14 +15,14 @@ export class HealthCheckService {
   ) { }
 
   setUpHealthChecks(cells: Cell[]) {
-    timer(0, 3000).subscribe(() => {
-      cells.map((cell: Cell) => {
-        this.proformHealthCheck(cell.uri).subscribe(res => res.status === 200 ? null : this.cellsFacade.updateCell({ ...cell, healthy: false }));
-      })
-    })
+    // timer(0, 3000).subscribe(() => {
+    //   cells.map((cell: Cell) => {
+    //     this.performHealthCheck(cell.uri).subscribe(res => res.status === 200 ? null : this.cellsFacade.updateCell({ ...cell, healthy: false }));
+    //   })
+    // })
   }
 
-  proformHealthCheck(cellUri: string) {
+  performHealthCheck(cellUri: string) {
     return this.httpClient.get(cellUri, { observe: 'response', responseType: 'text' })
   }
 }

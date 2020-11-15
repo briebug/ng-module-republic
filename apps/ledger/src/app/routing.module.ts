@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CellsComponent } from './cells/cells.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: CellsComponent },
   { path: 'cells', component: CellsComponent },
   { path: '**', redirectTo: '/' },
 ];

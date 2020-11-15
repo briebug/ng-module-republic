@@ -15,7 +15,7 @@
     "serve:dashboard": "ng serve --project dashboard --watch --port=4201",
     "serve:primary": "nx run primary:serve --port=4202",
     "serve:secondary": "nx run secondary:serve --port=4203",
-    "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:ledger\" \"npm run serve:dashboard\" \"npm run serve:primary\" \"npm run serve:secondary\"",
+    "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:ledger\" \"npm run serve:dashboard\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
