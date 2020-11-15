@@ -40,6 +40,7 @@ export class CellDetailsComponent {
       module: ['', Validators.required],
       healthy: [false],
       published: [false],
+      visible: [false]
     });
   }
 }

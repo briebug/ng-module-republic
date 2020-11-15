@@ -1,11 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCellDto } from './dto/create-cell.dto';
 import { UpdateCellDto } from './dto/update-cell.dto';
-import { WebSocketServer } from '@nestjs/websockets';
 import { InjectInMemoryDBService, InMemoryDBService } from '@nestjs-addons/in-memory-db'
-import * as io from 'socket.io-client';
 import { Cell } from '@bba/api-interfaces';
-import { Server } from 'socket.io';
 
 const cells: Cell[] = [
   {
@@ -16,9 +13,10 @@ const cells: Cell[] = [
     remoteName: 'primary',
     uri: 'http://localhost:4202/remoteEntry.js',
     module: './Primary',
-    published: false,
-    healthy: false,
-    visible: false
+    published: true,
+    healthy: true,
+    version: '1.0.0',
+    visible: true
   },
   {
     id: '2',
@@ -28,17 +26,16 @@ const cells: Cell[] = [
     remoteName: 'secondary',
     uri: 'http://localhost:4203/remoteEntry.js',
     module: './Secondary',
-    published: false,
-    healthy: false,
-    visible: false
+    published: true,
+    healthy: true,
+    version: '1.0.0',
+    visible: true
   }
 ]
 
 
 @Injectable()
 export class CellsService {
-  @WebSocketServer()
-  server = io('http://localhost:80');
 
   constructor(@InjectInMemoryDBService('cells') private readonly cellService: InMemoryDBService<Cell>) {
     this.cellService.createMany(cells);
@@ -46,7 +43,6 @@ export class CellsService {
 
   create(createCellDto: CreateCellDto) {
     const createdCell = this.cellService.create(createCellDto);
-    this.server.emit('create', createdCell);
     return createdCell
   }
 
@@ -59,7 +55,6 @@ export class CellsService {
   }
 
   update(id: string, updateCellDto: UpdateCellDto) {
-    this.server.emit('update', updateCellDto);
     this.cellService.update({ ...updateCellDto, id: id });
     return updateCellDto;
   }
@@ -68,7 +63,6 @@ export class CellsService {
     const deletedCell = this.cellService.get(id);
     if (deletedCell) {
       this.cellService.delete(id);
-      this.server.emit('delete', deletedCell);
       return deletedCell;
     }
     return new NotFoundException();

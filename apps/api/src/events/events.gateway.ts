@@ -6,7 +6,6 @@ import {
   WebSocketServer
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { Observable } from 'rxjs';
 
 @WebSocketGateway(80)
 export class EventsGateway {

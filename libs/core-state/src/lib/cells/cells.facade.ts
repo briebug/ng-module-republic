@@ -9,13 +9,14 @@ import * as CellsSelectors from './cells.selectors';
 export class CellsFacade {
   loaded$ = this.store.pipe(select(CellsSelectors.getCellsLoaded));
   allCells$ = this.store.pipe(select(CellsSelectors.getAllCells));
+  allPublishedCells$ = this.store.pipe(select(CellsSelectors.getAllPublishedCells));
   selectedCell$ = this.store.pipe(select(CellsSelectors.getSelectedCell));
 
   mutations$ = this.actions$.pipe(
     filter((action: Action) =>
-      action.type === CellsActions.createCell({} as any).type ||
-      action.type === CellsActions.updateCell({} as any).type ||
-      action.type === CellsActions.deleteCell({} as any).type
+      action.type === CellsActions.createCellSuccess({} as any).type ||
+      action.type === CellsActions.updateCellSuccess({} as any).type ||
+      action.type === CellsActions.deleteCellSuccess({} as any).type
     )
   );
 

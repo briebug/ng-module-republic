@@ -21,14 +21,21 @@
       </mat-nav-list>
       <mat-divider></mat-divider>
       <mat-selection-list #cells>
-        <h2 class="mat-sublist-header">Cells</h2>
+        <h2 class="mat-sublist-header">Modules</h2>
         <mat-list-option
-          *ngFor="let cell of allCells$ | async"
+          *ngFor="let cell of allPublishedCells$ | async"
+          [ngClass]="{ unHeathly: !cell.healthy }"
           (click)="updateCellVisibility(cell)"
           [selected]="cell.visible"
           [value]="cell.visible"
+          class="cell-list-item"
         >
           {{ cell.title }}
+          <mat-icon
+            class="health-status-icon"
+            [ngStyle]="{ color: getCellHealthStatusColor(cell) }"
+            >{{ getCellHealthStatusIcon(cell) }}</mat-icon
+          >
         </mat-list-option>
       </mat-selection-list>
     </ng-container>

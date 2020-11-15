@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "affected:e2e",
+			"problemMatcher": [],
+			"label": "npm: affected:e2e",
+			"detail": "nx affected:e2e"
+		}
+	]
+}

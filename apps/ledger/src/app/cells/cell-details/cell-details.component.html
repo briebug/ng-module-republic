@@ -4,7 +4,7 @@
       Editing {{ originalTitle }}
     </span>
     <ng-template #elseBlock>
-      Select Cell
+      Select a Module
     </ng-template>
   </mat-card-title>
   <form #form="ngForm" [formGroup]="cellForm" (submit)="save(form)">
@@ -63,11 +63,9 @@
           name="module"
         />
       </mat-form-field>
+
       <section>
         <mat-checkbox formControlName="published">Published</mat-checkbox>
-      </section>
-      <section>
-        <mat-checkbox formControlName="healthy">Healthy</mat-checkbox>
       </section>
     </mat-card-content>
     <mat-card-actions>

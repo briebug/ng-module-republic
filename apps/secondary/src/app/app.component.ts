@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'secondary';
+  links = [
+    { path: '/', icon: 'home', title: 'home' },
+  ];
+
+  constructor() {}
+
+  logout() { }
+
+  toggleSidenav() { }
+
 }

@@ -1,0 +1,27 @@
+.cellHealthy {
+  color: green;
+}
+
+.cellUnhealthy {
+  color: red;
+}
+
+.health-status-icon {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.cell-list-item {
+  .unHeathly {
+    pointer-events: none;
+    opacity: 50%;
+    filter: brightness(85%);
+  }
+
+  &::ng-deep .mat-list-item-content .mat-list-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
