@@ -1,6 +1,7 @@
 import { Component, ComponentFactoryResolver, Injector, Input, OnChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { CellOptions } from '@bba/api-interfaces';
+import { Cell } from '@bba/api-interfaces';
 import { loadRemoteModule } from '@bba/core-data';
+import { CellsFacade } from '@bba/core-state';
 
 @Component({
   selector: 'bba-cell',
@@ -13,17 +14,28 @@ export class CellComponent implements OnChanges {
 
   constructor(
     private injector: Injector,
-    private cfr: ComponentFactoryResolver
+    private cfr: ComponentFactoryResolver,
+    private cellsFacade: CellsFacade
   ) { }
 
-  @Input() cell: CellOptions;
+  @Input() cell: Cell;
 
   async ngOnChanges() {
     console.log(this.cell);
     this.viewContainer.clear();
 
+    const test = {
+      ...this.cell,
+      healthy: false
+    }
+
     const component = await loadRemoteModule(this.cell)
-      .then(m => m[this.cell.componentName]);
+      .then(m => m[this.cell.componentName])
+      .catch(err => {
+        console.log(err);
+        // console.log(test)
+        // this.cellsFacade.updateCell(test)
+      })
 
     const factory = this.cfr.resolveComponentFactory(component);
 

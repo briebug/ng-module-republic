@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cell } from '@bba/api-interfaces';
 import { CellsFacade } from '@bba/core-state';
-import { LedgerService } from '@bba/core-data';
 
 @Component({
   selector: 'bba-cells',
@@ -15,12 +14,10 @@ export class CellsComponent implements OnInit {
 
   constructor(
     private cellsFacade: CellsFacade,
-    private ledgerService: LedgerService
     ) {}
 
   ngOnInit(): void {
     this.reset();
-    this.ledgerService.setUpSocket();
     this.cellsFacade.mutations$.subscribe((_) => this.reset())
   }
 

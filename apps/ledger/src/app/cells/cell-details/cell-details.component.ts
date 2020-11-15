@@ -34,11 +34,13 @@ export class CellDetailsComponent {
       id: [''],
       title: ['', Validators.required],
       description: [''],
-      routePath: ['', Validators.required],
+      componentName: ['', Validators.required],
+      remoteName: ['', Validators.required],
       uri: ['', Validators.required],
       module: ['', Validators.required],
       healthy: [false],
       published: [false],
+      visible: [false]
     });
   }
 }

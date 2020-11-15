@@ -18,9 +18,9 @@ module.exports = {
         "./Primary": "./apps/primary/src/app/primary/primary.component.ts"
       },
       shared: {
-        "@angular/core": { singleton: true },
-        "@angular/common": { singleton: true },
-        "@angular/router": { singleton: true },
+        "@angular/core": { eager: true, singleton: true },
+        "@angular/common": { eager: true, singleton: true },
+        "@angular/router": { eager: true, singleton: true },
       },
     }),
   ],

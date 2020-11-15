@@ -45,6 +45,16 @@ export const createCell = createAction(
   props<{ cell: Cell }>()
 );
 
+export const createCellBroadcast = createAction(
+  '[Cells] Create Cell Broadcast',
+  props<{ cell: Cell }>()
+);
+
+export const createCellBroadcastFailure = createAction(
+  '[Cells] Create Cell Broadcast Failure',
+  props<{ error: any }>()
+);
+
 export const createCellSuccess = createAction(
   '[Cells] Create Cell Success',
   props<{ cell: Cell }>()
@@ -54,6 +64,11 @@ export const createCellFailure = createAction(
   '[Cells] Create Cell Failure',
   props<{ error: any }>()
 );
+
+export const createCellFromLedger = createAction(
+  '[Cells] Create Cell',
+  props<{ cell: Cell }>()
+)
 
 // Update Cell
 export const updateCell = createAction(
@@ -71,10 +86,35 @@ export const updateCellFailure = createAction(
   props<{ error: any }>()
 );
 
+export const updateCellBroadcast = createAction(
+  '[Cells] Update Cell Broadcast',
+  props<{ cell: Cell }>()
+);
+
+export const updateCellBroadcastFailure = createAction(
+  '[Cells] Update Cell Broadcast Failure',
+  props<{ error: any }>()
+);
+
+export const updateCellFromLedger = createAction(
+  '[Cells] Update Cell',
+  props<{ cell: Cell }>()
+)
+
 // Delete Cell
 export const deleteCell = createAction(
   '[Cells] Delete Cell',
   props<{ cell: Cell }>()
+);
+
+export const deleteCellBroadcast = createAction(
+  '[Cells] delete Cell Broadcast',
+  props<{ cell: Cell }>()
+);
+
+export const deleteCellBroadcastFailure = createAction(
+  '[Cells] delete Cell Broadcast Failure',
+  props<{ error: any }>()
 );
 
 export const deleteCellCancelled = createAction('[Cells] Delete Cell Cancelled');
@@ -88,3 +128,8 @@ export const deleteCellFailure = createAction(
   '[Cells] Delete Cell Failure',
   props<{ error: any }>()
 );
+
+export const deleteCellFromLedger = createAction(
+  '[Cells] Delete Cell',
+  props<{ cell: Cell }>()
+)

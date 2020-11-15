@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+import { APP_ID, Component } from '@angular/core';
+import { Cell } from '@bba/api-interfaces';
+import { CellsFacade } from '@bba/core-state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bba-root',
@@ -6,11 +10,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  allPublishedCells$: Observable<Cell[]> = this.cellsFacade.allPublishedCells$;
   links = [
     { path: '/', icon: 'home', title: 'home' },
+    { path: '/dashboard', icon: 'home', title: 'Dashboard' },
   ];
 
-  logout() { }
+  constructor(
+    private cellsFacade: CellsFacade
+  ) {}
+
+  getCellHealthStatusIcon(cell: Cell): string {
+    return cell.healthy ? 'signal_wifi_4_bar' : 'signal_wifi_off';
+  }
+
+  getCellHealthStatusColor(cell: Cell): string {
+    return cell.healthy ? 'green' : 'red';
+  }
+
+
+  logout() {
+    console.log(APP_BASE_HREF, APP_ID)
+  }
 
   toggleSidenav() { }
+
+  updateCellVisibility(cell: Cell) {
+    this.cellsFacade.updateCell({ ...cell, visible: !cell.visible });
+  }
 }

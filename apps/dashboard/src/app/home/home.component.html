@@ -1,5 +1,11 @@
 <div class="home-container">
-  <ng-container *ngFor="let cell of allCells$ | async">
-    <bba-cell class="cell-wrapper" [cell]="cell"></bba-cell>
+  <ng-container *ngFor="let cell of allPublishedCells$ | async">
+    <ng-container *ngIf="cell.visible">
+      <bba-cell
+        class="cell-wrapper"
+        [ngClass]="{ unHealthy: !cell.healthy }"
+        [cell]="cell"
+      ></bba-cell>
+    </ng-container>
   </ng-container>
 </div>

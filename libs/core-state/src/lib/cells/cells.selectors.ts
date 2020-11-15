@@ -24,6 +24,11 @@ export const getAllCells = createSelector(
   (state: CellsState) => selectAll(state)
 );
 
+export const getAllPublishedCells = createSelector(
+  getAllCells,
+  (allCells) => allCells.filter((cell) => cell.published === true)
+)
+
 export const getCellsEntities = createSelector(
   getCellsState,
   (state: CellsState) => selectEntities(state)
@@ -40,6 +45,8 @@ const emptyCell: Cell = {
   description: '',
   componentName: '',
   remoteName: '',
+  visible: false,
+  version: '',
   uri: '',
   module: '',
   published: false,

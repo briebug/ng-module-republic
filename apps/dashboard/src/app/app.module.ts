@@ -8,10 +8,14 @@ import { UiToolbarModule } from '@bba/ui-toolbar';
 import { RoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { CoreDataModule } from '@bba/core-data';
+import { CellsSocketService, CoreDataModule } from '@bba/core-data';
 import { CoreStateModule } from '@bba/core-state';
 import { CellComponent } from './home/cell/cell.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+
+const config: SocketIoConfig = { url: 'http://localhost:80', options: {} };
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CellComponent],
@@ -24,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreDataModule,
     CoreStateModule,
     HttpClientModule,
+    SocketIoModule.forRoot(config),
     RoutingModule
   ],
   providers: [],

@@ -60,14 +60,23 @@ const _cellsReducer = createReducer(
   on(CellsActions.createCellSuccess, (state, { cell }) =>
     cellsAdapter.addOne(cell, state)
   ),
+  on(CellsActions.createCellFromLedger, (state, { cell }) =>
+    cellsAdapter.addOne(cell, state)
+  ),
   on(CellsActions.createCellFailure, onFailure),
   // Update cell
   on(CellsActions.updateCellSuccess, (state, { cell }) =>
     cellsAdapter.updateOne({ id: cell.id, changes: cell }, state)
   ),
+  on(CellsActions.updateCellFromLedger, (state, { cell }) =>
+    cellsAdapter.updateOne({ id: cell.id, changes: cell }, state)
+  ),
   on(CellsActions.updateCellFailure, onFailure),
   // Delete cell
   on(CellsActions.deleteCellSuccess, (state, { cell }) =>
+    cellsAdapter.removeOne(cell.id, state)
+  ),
+  on(CellsActions.deleteCellFromLedger, (state, { cell }) =>
     cellsAdapter.removeOne(cell.id, state)
   ),
   on(CellsActions.deleteCellFailure, onFailure)

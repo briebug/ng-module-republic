@@ -8,4 +8,6 @@ export class CreateCellDto {
   uri: string;
   healthy: boolean;
   published: boolean;
+  version: string;
+  visible: boolean;
 }

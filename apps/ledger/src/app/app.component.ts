@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   links = [
-    { path: '/', icon: 'home', title: 'home' },
     { path: '/cells', icon: 'view_list', title: 'Cells' },
   ];
 

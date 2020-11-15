@@ -4,7 +4,7 @@
       Editing {{ originalTitle }}
     </span>
     <ng-template #elseBlock>
-      Select Cell
+      Select a Module
     </ng-template>
   </mat-card-title>
   <form #form="ngForm" [formGroup]="cellForm" (submit)="save(form)">
@@ -39,10 +39,19 @@
       <mat-form-field class="full-width">
         <input
           matInput
-          placeholder="Route Path"
-          formControlName="routePath"
+          placeholder="Component Name"
+          formControlName="componentName"
           type="text"
-          name="routePath"
+          name="componentName"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Remote Name"
+          formControlName="remoteName"
+          type="text"
+          name="remoteName"
         />
       </mat-form-field>
       <mat-form-field class="full-width">
@@ -54,11 +63,9 @@
           name="module"
         />
       </mat-form-field>
+
       <section>
         <mat-checkbox formControlName="published">Published</mat-checkbox>
-      </section>
-      <section>
-        <mat-checkbox formControlName="healthy">Healthy</mat-checkbox>
       </section>
     </mat-card-content>
     <mat-card-actions>
@@ -70,7 +77,11 @@
       >
         Save
       </button>
-      <button type="button" mat-button (click)="form.reset(); cancelled.emit()">
+      <button
+        type="button"
+        mat-button
+        (click)="form.resetForm(); cancelled.emit()"
+      >
         Cancel
       </button>
     </mat-card-actions>

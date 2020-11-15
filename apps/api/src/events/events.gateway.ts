@@ -6,7 +6,6 @@ import {
   WebSocketServer
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { Observable } from 'rxjs';
 
 @WebSocketGateway(80)
 export class EventsGateway {
@@ -14,21 +13,18 @@ export class EventsGateway {
   server: Server;
 
   @SubscribeMessage('create')
-  create(@MessageBody() data: any): Observable<WsResponse<unknown>> {
+  create(@MessageBody() data: any) {
     this.server.emit('create', data);
-    return data;
   }
 
   @SubscribeMessage('update')
-  update(@MessageBody() data: any): Observable<WsResponse<unknown>> {
+  update(@MessageBody() data: any) {
     this.server.emit('update', data);
-    return data;
   }
 
   @SubscribeMessage('delete')
-  delete(@MessageBody() data: any): Observable<WsResponse<unknown>> {
+  delete(@MessageBody() data: any) {
     this.server.emit('delete', data);
-    return data;
   }
 
 }

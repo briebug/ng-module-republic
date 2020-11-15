@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const deps = require("../../package.json").dependencies;
 
 module.exports = {
   output: {
@@ -11,10 +12,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
+      name: "dashboard",
+      library: { type: "var", name: "dashboard" },
+      filename: "remoteEntry.js",
       shared: {
-        "@angular/core": { eager: true, singleton: true },
-        "@angular/common": { eager: true, singleton: true },
-        "@angular/router": { eager: true, singleton: true },
+        "@angular/core": { eager: true, singleton: true, requiredVersion: deps["@angular/core"] },
+        "@angular/common": { eager: true, singleton: true, requiredVersion: deps["@angular/common"] },
+        "@angular/router": { eager: true, singleton: true, requiredVersion: deps["@angular/common"] },
       },
     }),
   ],

@@ -50,9 +50,9 @@ async function lookupExposedModule<T>(
 export async function loadRemoteModule(
   options: LoadRemoteModuleOptions
 ): Promise<any> {
-  await loadRemoteEntry(options.uri);
+  await loadRemoteEntry(options.uri).catch(err => console.log(err));
   return await lookupExposedModule<any>(
     options.remoteName,
     options.module
-  );
+  ).catch(err => console.log(err));
 }
