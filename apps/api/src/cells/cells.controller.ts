@@ -17,6 +17,11 @@ export class CellsController {
     return this.cellsService.findAll();
   }
 
+  @Get('healthCheck')
+  healthCheck() {
+    return this.cellsService.initHealthCheck();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.cellsService.findOne(id);

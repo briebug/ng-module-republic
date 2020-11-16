@@ -31,6 +31,10 @@ export class CellsService {
     return this.http.delete(this.getUrlWithId(cell.id));
   }
 
+  initCellsHealthCheck() {
+    return this.http.get(`${this.getUrl()}/healthCheck`);
+  }
+
   private getUrl() {
     return `${environment.apiEndpoint}${this.model}`;
   }

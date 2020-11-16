@@ -9,6 +9,7 @@ export const CELLS_FEATURE_KEY = 'cells';
 export interface CellsState extends EntityState<Cell> {
   selectedId?: string | number; // which cells record has been selected
   loaded: boolean; // has the cells list been loaded
+  healthChecksActive: boolean;
   error?: string | null; // last known error (if any)
 }
 
@@ -21,6 +22,7 @@ export const cellsAdapter: EntityAdapter<Cell> = createEntityAdapter();
 export const initialCellsState: CellsState = cellsAdapter.getInitialState(
   {
     // set initial required properties
+    healthChecksActive: false,
     loaded: false,
   }
 );
@@ -60,23 +62,16 @@ const _cellsReducer = createReducer(
   on(CellsActions.createCellSuccess, (state, { cell }) =>
     cellsAdapter.addOne(cell, state)
   ),
-  on(CellsActions.createCellFromLedger, (state, { cell }) =>
-    cellsAdapter.addOne(cell, state)
-  ),
   on(CellsActions.createCellFailure, onFailure),
   // Update cell
   on(CellsActions.updateCellSuccess, (state, { cell }) =>
     cellsAdapter.updateOne({ id: cell.id, changes: cell }, state)
   ),
-  on(CellsActions.updateCellFromLedger, (state, { cell }) =>
-    cellsAdapter.updateOne({ id: cell.id, changes: cell }, state)
-  ),
+  on(CellsActions.initCellHealthChecksSuccess, (state, { healthChecksActive }) => ({ ...state, healthChecksActive })),
+  on(CellsActions.initCellHealthChecksFailure, onFailure),
   on(CellsActions.updateCellFailure, onFailure),
   // Delete cell
   on(CellsActions.deleteCellSuccess, (state, { cell }) =>
-    cellsAdapter.removeOne(cell.id, state)
-  ),
-  on(CellsActions.deleteCellFromLedger, (state, { cell }) =>
     cellsAdapter.removeOne(cell.id, state)
   ),
   on(CellsActions.deleteCellFailure, onFailure)

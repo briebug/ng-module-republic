@@ -1,0 +1,12 @@
+<bba-toolbar (logout)="logout()" (toggleSidenav)="sidenav.toggle()">
+</bba-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="false" mode="side" class="app-sidenav">
+    <ng-container> </ng-container>
+  </mat-sidenav>
+
+  <mat-card class="container">
+    <bba-feature></bba-feature>
+  </mat-card>
+</mat-sidenav-container>

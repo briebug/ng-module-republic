@@ -21,7 +21,8 @@
       "@bba/core-data": ["libs/core-data/src/index.ts"],
       "@bba/core-state": ["libs/core-state/src/index.ts"],
       "@bba/material": ["libs/material/src/index.ts"],
-      "@bba/ui-toolbar": ["libs/ui-toolbar/src/index.ts"]
+      "@bba/ui-toolbar": ["libs/ui-toolbar/src/index.ts"],
+      "@bba/module-outlet": ["libs/module-outlet/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

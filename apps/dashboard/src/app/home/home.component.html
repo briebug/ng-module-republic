@@ -1,11 +1,11 @@
 <div class="home-container">
   <ng-container *ngFor="let cell of allPublishedCells$ | async">
     <ng-container *ngIf="cell.visible">
-      <bba-cell
+      <bba-module-outlet
         class="cell-wrapper"
         [ngClass]="{ unHealthy: !cell.healthy }"
         [cell]="cell"
-      ></bba-cell>
+      ></bba-module-outlet>
     </ng-container>
   </ng-container>
 </div>

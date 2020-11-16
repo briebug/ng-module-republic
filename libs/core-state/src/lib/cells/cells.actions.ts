@@ -65,12 +65,19 @@ export const createCellFailure = createAction(
   props<{ error: any }>()
 );
 
-export const createCellFromLedger = createAction(
-  '[Cells] Create Cell',
-  props<{ cell: Cell }>()
+// Update Cell
+export const initCellHealthChecks = createAction('[Cells] Init Cell Health Checks')
+
+export const initCellHealthChecksSuccess = createAction(
+  '[Cells] Init Cell Health Checks Success',
+  props<{ healthChecksActive: boolean }>()
 )
 
-// Update Cell
+export const initCellHealthChecksFailure = createAction(
+  '[Cells] Init Cell Health Checks Failuure',
+  props<{ error: any }>()
+)
+
 export const updateCell = createAction(
   '[Cells] Update Cell',
   props<{ cell: Cell }>()
@@ -95,11 +102,6 @@ export const updateCellBroadcastFailure = createAction(
   '[Cells] Update Cell Broadcast Failure',
   props<{ error: any }>()
 );
-
-export const updateCellFromLedger = createAction(
-  '[Cells] Update Cell',
-  props<{ cell: Cell }>()
-)
 
 // Delete Cell
 export const deleteCell = createAction(
@@ -128,8 +130,3 @@ export const deleteCellFailure = createAction(
   '[Cells] Delete Cell Failure',
   props<{ error: any }>()
 );
-
-export const deleteCellFromLedger = createAction(
-  '[Cells] Delete Cell',
-  props<{ cell: Cell }>()
-)

@@ -68,6 +68,16 @@
     },
     "ui-toolbar": {
       "tags": []
+    },
+    "module-outlet": {
+      "tags": []
+    },
+    "partner": {
+      "tags": []
+    },
+    "partner-e2e": {
+      "tags": [],
+      "implicitDependencies": ["partner"]
     }
   }
 }

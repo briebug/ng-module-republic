@@ -10,5 +10,7 @@ module.exports = {
     '<rootDir>/libs/core-state',
     '<rootDir>/libs/material',
     '<rootDir>/libs/ui-toolbar',
+    '<rootDir>/libs/module-outlet',
+    '<rootDir>/apps/partner',
   ],
 };

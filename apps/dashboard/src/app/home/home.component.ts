@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cell } from '@bba/api-interfaces';
-import { CellsSocketService, HealthCheckService, LedgerService } from '@bba/core-data';
+import { CellsSocketService } from '@bba/core-data';
 import { CellsFacade } from '@bba/core-state';
 import { Observable } from 'rxjs';
 
@@ -14,17 +14,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private cellsFacade: CellsFacade,
-    private cellsSocketService: CellsSocketService,
-    private healthCheckService: HealthCheckService
+    private cellsSocketService: CellsSocketService
   ) {}
 
   ngOnInit(): void {
     this.cellsFacade.loadCells();
+    this.cellsFacade.initHealthChecks();
     this.cellsSocketService.updateCellMutation$.subscribe(() => this.cellsFacade.loadCells());
     this.cellsSocketService.deleteCellMutation$.subscribe(() => this.cellsFacade.loadCells());
-    this.cellsSocketService.createCellMutation$.subscribe(() => this.cellsFacade.loadCells());
-    
-    this.allPublishedCells$.subscribe((cells: Cell[]) => this.healthCheckService.setUpHealthChecks(cells));
+    this.cellsSocketService.createCellMutation$.subscribe(() => this.cellsFacade.loadCells());    
   }
 
 }

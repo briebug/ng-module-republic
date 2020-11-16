@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
 import { Cell } from '@bba/api-interfaces';
 import { Action, ActionsSubject, select, Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
@@ -30,17 +30,8 @@ export class CellsFacade {
     this.dispatch(CellsActions.loadCells());
   }
 
-  createCellFromLedger(cell: Cell) {
-    this.dispatch(CellsActions.createCellFromLedger({ cell }));
-  }
-
-  updateCellFromLedger(cell: Cell) {
-    this.dispatch(CellsActions.updateCellFromLedger({ cell }));
-
-  }
-
-  deleteCellFromLedger(cell: Cell) {
-    this.dispatch(CellsActions.deleteCellFromLedger({ cell }));
+  initHealthChecks() {
+    this.dispatch(CellsActions.initCellHealthChecks())
   }
 
   loadCell(cellId: string) {

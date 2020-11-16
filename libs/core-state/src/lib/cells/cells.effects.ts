@@ -25,6 +25,21 @@ export class CellsEffects {
     })
   ));
 
+  initCellHealthChecks$ = createEffect(() => this.actions$.pipe(
+    ofType(CellsActions.initCellHealthChecks),
+    fetch({
+      run: (action) =>
+        this.cellsService
+          .initCellsHealthCheck()
+          .pipe(
+            map(() =>
+              CellsActions.initCellHealthChecksSuccess({ healthChecksActive: true }), 
+            )
+          ),
+      onError: (action, error) => CellsActions.initCellHealthChecksFailure({ error }),
+    })
+  ));
+
   loadCell$ = createEffect(() => this.actions$.pipe(
     ofType(CellsActions.loadCell),
     fetch({
@@ -84,6 +99,7 @@ export class CellsEffects {
       onError: (action, error) => CellsActions.updateCellFailure({ error }),
     })
   ));
+
 
   updateCellBroadcast$ = createEffect(() => this.actions$.pipe(
     ofType(CellsActions.updateCellBroadcast),
