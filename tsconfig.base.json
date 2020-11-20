@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@env/*": ["apps/dashboard/src/environments/*"],
+      "@env": ["env.ts"],
       "@bba/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@bba/core-data": ["libs/core-data/src/index.ts"],
       "@bba/core-state": ["libs/core-state/src/index.ts"],

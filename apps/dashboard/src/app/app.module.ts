@@ -13,9 +13,9 @@ import { CoreStateModule } from '@bba/core-state';
 import { HttpClientModule } from '@angular/common/http';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ModuleOutletModule } from '@bba/module-outlet';
+import { environment } from '@env';
 
-
-const config: SocketIoConfig = { url: 'http://localhost:80', options: {} };
+const config: SocketIoConfig = { url: environment.websocketEnpoint, options: {} };
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],

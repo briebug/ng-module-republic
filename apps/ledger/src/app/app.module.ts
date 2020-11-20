@@ -14,6 +14,10 @@ import { CoreDataModule } from '@bba/core-data';
 import { CoreStateModule } from '@bba/core-state';
 import { MaterialModule } from '@bba/material';
 import { UiToolbarModule } from '@bba/ui-toolbar';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { environment } from '@env';
+
+const config: SocketIoConfig = { url: environment.websocketEnpoint, options: {} };
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { UiToolbarModule } from '@bba/ui-toolbar';
     HttpClientModule,
     MaterialModule,
     UiToolbarModule,
+    SocketIoModule.forRoot(config),
     RoutingModule,
   ],
   providers: [],
