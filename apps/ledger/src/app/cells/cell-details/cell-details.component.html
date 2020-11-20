@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-    <span *ngIf="currentCell.id; else elseBlock">
+    <span *ngIf="originalTitle; else elseBlock">
       Editing {{ originalTitle }}
     </span>
     <ng-template #elseBlock>

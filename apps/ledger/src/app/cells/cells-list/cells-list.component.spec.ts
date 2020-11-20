@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CellsListComponent } from './cells-list.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@bba/material';
 
 describe('CellsListComponent', () => {
   let component: CellsListComponent;
@@ -8,7 +11,14 @@ describe('CellsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CellsListComponent ]
+      declarations: [
+        CellsListComponent
+      ],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule
+      ]
     })
     .compileComponents();
   });

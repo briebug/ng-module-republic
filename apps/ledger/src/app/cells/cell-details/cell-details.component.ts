@@ -8,7 +8,6 @@ import { Cell } from '@bba/api-interfaces';
   styleUrls: ['./cell-details.component.scss']
 })
 export class CellDetailsComponent {
-  currentCell: Cell;
   originalTitle = '';
   cellForm: FormGroup;
 
@@ -17,8 +16,8 @@ export class CellDetailsComponent {
   }
 
   @Input() set cell(value: Cell) {
-    if(value) this.originalTitle = value.title;
-    this.currentCell = {...value};
+    if (!value) return;
+    this.originalTitle = value.title;
     this.cellForm.patchValue(value);
   };
   @Output() saved = new EventEmitter;
