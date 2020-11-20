@@ -83,7 +83,6 @@ export class CellsService {
 
   initHealthCheck() {
     timer(0, environment.healthCheckDelay).subscribe(() => {
-      console.log('initHealthCheck');
       this.setupHealthChecks()
     });
   }
