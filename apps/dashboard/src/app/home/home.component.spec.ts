@@ -10,6 +10,12 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { CellsSocketService, CoreDataModule } from '@bba/core-data';
 import { of } from 'rxjs';
 
+const mockCellsSocketService = {
+  updateCellMutation$: of(null),
+  createCellMutation$: of(null),
+  deleteCellMutation$: of(null)
+}
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
@@ -29,12 +35,7 @@ describe('HomeComponent', () => {
       providers: [
         CellsFacade,
         provideMockStore(),
-        { provide: CellsSocketService, useValue: {
-            updateCellMutation$: of(null),
-            createCellMutation$: of(null),
-            deleteCellMutation$: of(null)
-          }
-        },
+        { provide: CellsSocketService, useValue: mockCellsSocketService },
       ]
     })
     .compileComponents();
