@@ -116,6 +116,7 @@ export class CellsService {
   }
 
   private setCellHealth(cell: Cell, healthy: boolean) {
+    if (cell.healthy === healthy) return;
     socket.emit('update', { ...cell, healthy });
     this.cellService.update({ ...cell, healthy });
   }
