@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@env';
 import { Cell } from '@bba/api-interfaces';
+import { environment } from '@env';
 
 @Injectable({
   providedIn: 'root',

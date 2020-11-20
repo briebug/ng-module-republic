@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { combineLatest, merge} from 'rxjs';
+import { merge } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

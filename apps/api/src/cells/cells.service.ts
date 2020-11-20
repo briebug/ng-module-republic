@@ -1,15 +1,14 @@
-import { HttpService, Injectable, NotFoundException } from '@nestjs/common';
-import { CreateCellDto } from './dto/create-cell.dto';
-import { UpdateCellDto } from './dto/update-cell.dto';
+import { Cell } from '@bba/api-interfaces';
 import {
   InjectInMemoryDBService,
-  InMemoryDBService,
+  InMemoryDBService
 } from '@nestjs-addons/in-memory-db';
-import { catchError, flatMap, map } from 'rxjs/operators';
-import { Cell } from '@bba/api-interfaces';
-import { Observable, of, timer } from 'rxjs';
-import { environment } from '../environments/environment';
+import { HttpService, Injectable, NotFoundException } from '@nestjs/common';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { Observable, timer } from 'rxjs';
+import { environment } from '../environments/environment';
+import { CreateCellDto } from './dto/create-cell.dto';
+import { UpdateCellDto } from './dto/update-cell.dto';
 
 const socket = require('socket.io-client')('http://localhost:80');
 

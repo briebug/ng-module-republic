@@ -11,11 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CoreDataModule } from '@bba/core-data';
 import { CoreStateModule } from '@bba/core-state';
 import { HttpClientModule } from '@angular/common/http';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ModuleOutletModule } from '@bba/module-outlet';
-import { environment } from '@env';
-
-const config: SocketIoConfig = { url: environment.websocketEnpoint, options: {} };
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -29,7 +25,6 @@ const config: SocketIoConfig = { url: environment.websocketEnpoint, options: {} 
     CoreStateModule,
     ModuleOutletModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config),
     RoutingModule
   ],
   providers: [],

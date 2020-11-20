@@ -17,7 +17,6 @@ export class ModuleOutletComponent implements OnChanges {
   ) { }
 
   @Input() cell: Cell;
-  @Input() cellConfig
 
   async ngOnChanges() {
     this.viewContainer.clear();

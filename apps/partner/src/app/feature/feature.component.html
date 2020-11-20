@@ -5,5 +5,9 @@
     Module Federation. Angular is shared so the download is minimal for the
     frontend.
   </p>
-  <ng-container #placeHolder></ng-container>
+  <bba-module-outlet
+    class="cell-wrapper"
+    [ngClass]="{ unHealthy: !cell.healthy }"
+    [cell]="cell"
+  ></bba-module-outlet>
 </div>
