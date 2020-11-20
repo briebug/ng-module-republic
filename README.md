@@ -1,3 +1,5 @@
+![Dashboard](apps/dashboard/src/assets/screenshots/dashboard.png)
+
 # Federated Modules Example
 
 This is an example demonstrating how we can use federated modules to solve enterprise-level problems.
@@ -8,24 +10,35 @@ This is an example demonstrating how we can use federated modules to solve enter
 - Node.js and NPM – we recommend using [NVM (Linux/Mac)](https://github.com/creationix/nvm) or [NVM-Windows (Windows)](https://github.com/coreybutler/nvm-windows)
 - Install Angular CLI via `npm i -g @angular/cli`
 
-## Web: Getting Started
+## Getting Started
 
-```
-git clone https://github.com/onehungrymind/ng-module-republic.git
+Because this is a demonstration of how to consume N number of hosted applications into a single application, we will be spinning a couple of stand alone applications at once. 
+
+```bash
+git clone https://github.com/briebug/ng-module-republic.git
 cd ng-module-republic
 yarn
 yarn serve:all
 ```
 
-The `serve:all` command is a convenience methods that runs multiple commands concurrently. You can run each command separately if you need to.
+And run each of these commands in their own tab.
 
+```bash
+yarn serve:primary
+yarn serve:secondary
+yarn serve:partner
 ```
+
+The `serve:all` command is a convenience methods that runs the `serve:api`, `serve:ledger` and `serve:dashboard` commands concurrently. You can run each command separately if you need to.
+
+```json
 "serve:api": "nx run api:serve",
-"serve:ledger": "ng serve --project ledger --watch --port=4200 --open",
-"serve:dashboard": "ng serve --project dashboard --watch --port=4201 --open",
+"serve:ledger": "nx run ledger:serve --port=4200 --open",
+"serve:dashboard": "nx run dashboard:serve --port=4201 --open",
 "serve:primary": "nx run primary:serve --port=4202 --open",
 "serve:secondary": "nx run secondary:serve --port=4203 --open",
 "serve:partner": "nx run partner:serve --port=4204 --open",
+"serve:remotes": "concurrently \"npm run serve:primary\" \"npm run serve:secondary\" \"npm run serve:partner\"",
 "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:ledger\" \"npm run serve:dashboard\"",
 ```
 
