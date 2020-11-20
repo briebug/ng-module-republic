@@ -81,10 +81,11 @@ export class CellsService {
     return new NotFoundException();
   }
 
-  startHeartBeat() {
-    timer(0, environment.healthCheckDelay).subscribe(() =>
+  initHealthCheck() {
+    timer(0, environment.healthCheckDelay).subscribe(() => {
+      console.log('initHealthCheck');
       this.setupHealthChecks()
-    );
+    });
   }
 
   setupHealthChecks() {
@@ -108,12 +109,8 @@ export class CellsService {
   }
 
   private handleHealthCheckSuccess(res: AxiosResponse, cell: Cell) {
-    if (res.status === 200 && !cell.healthy) {
-      this.setCellHealth(cell, true);
-    }
-    if (res.status !== 200 && cell.healthy) {
-      this.setCellHealth(cell, false);
-    }
+    const healthy = (res.status === 200); // This obviously could be more robust
+    this.setCellHealth(cell, true);
   }
 
   private handleHealthCheckError(cell: Cell) {

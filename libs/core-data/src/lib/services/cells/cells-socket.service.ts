@@ -13,9 +13,9 @@ export class CellsSocketService {
   createCellMutation$ = this.socket.fromEvent('create')
   deleteCellMutation$ = this.socket.fromEvent('delete');
 
-  cellMutations$ = merge([
+  cellMutations$ = merge(
     this.updateCellMutation$,
     this.createCellMutation$,
     this.deleteCellMutation$
-  ])
+  );
 }
