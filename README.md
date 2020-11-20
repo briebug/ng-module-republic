@@ -74,4 +74,4 @@ Now that we know how to discover modules, how do we verify that they are healthy
 
 ![Module Discovery](apps/dashboard/src/assets/animations/06-module-inception.gif)
 
-We can do some exciting things but using federated modules to load federated modules. This arrangement presents some pretty compelling use cases that involve dynamic feature composition and consumption from independent development sources. For instance, you could create a top-level module outlet for 3rd party vendors that your users can then dynamically load in modules from an ecosystem or marketplace at their discretion.
+We can do some exciting things by using federated modules to load federated modules. This arrangement presents some pretty compelling use cases that involve dynamic feature composition and consumption from independent development sources. For instance, you could create a top-level module outlet for 3rd party vendors that your users can then dynamically load in modules from an ecosystem or marketplace at their discretion.
