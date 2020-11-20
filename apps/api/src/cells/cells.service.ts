@@ -109,7 +109,7 @@ export class CellsService {
 
   private handleHealthCheckSuccess(res: AxiosResponse, cell: Cell) {
     const healthy = (res.status === 200); // This obviously could be more robust
-    this.setCellHealth(cell, true);
+    this.setCellHealth(cell, healthy);
   }
 
   private handleHealthCheckError(cell: Cell) {
