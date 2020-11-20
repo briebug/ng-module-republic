@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModuleOutletComponent } from './module-outlet.component';
+import { MaterialModule } from '@bba/material';
 
 describe('ModuleOutletComponent', () => {
   let component: ModuleOutletComponent;
@@ -8,7 +9,8 @@ describe('ModuleOutletComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModuleOutletComponent ]
+      declarations: [ModuleOutletComponent],
+      imports: [MaterialModule]
     })
     .compileComponents();
   });

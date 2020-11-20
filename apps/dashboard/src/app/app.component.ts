@@ -28,9 +28,7 @@ export class AppComponent {
   }
 
 
-  logout() {
-    console.log(APP_BASE_HREF, APP_ID)
-  }
+  logout() { }
 
   toggleSidenav() { }
 

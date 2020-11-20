@@ -19,7 +19,7 @@
     "serve:remotes": "concurrently \"npm run serve:primary\" \"npm run serve:secondary\" \"npm run serve:partner\"",
     "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:ledger\" \"npm run serve:dashboard\"",
     "build": "ng build",
-    "test": "ng test",
+    "test": "nx run-many --all --target=test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",

@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@bba/material';
+import { ModuleOutletModule } from '@bba/module-outlet';
+import { CellsFacade } from '@bba/core-state';
+import { provideMockStore } from '@ngrx/store/testing';
+import { CellsSocketService, CoreDataModule } from '@bba/core-data';
+import { of } from 'rxjs';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +16,26 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [
+        HomeComponent
+      ],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        ModuleOutletModule,
+        CoreDataModule
+      ],
+      providers: [
+        CellsFacade,
+        provideMockStore(),
+        { provide: CellsSocketService, useValue: {
+            updateCellMutation$: of(null),
+            createCellMutation$: of(null),
+            deleteCellMutation$: of(null)
+          }
+        },
+      ]
     })
     .compileComponents();
   });
