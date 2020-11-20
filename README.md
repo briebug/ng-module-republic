@@ -62,16 +62,16 @@ This application demonstrates a few interesting ideas of how an organization can
 
 ![Module Discovery](apps/dashboard/src/assets/animations/02-module-discovery.gif)
 
-Imagine we have a dashboard that would like to consumer any number of modules if it only knew what was available. By introducing a "ledger", modules can register themselves as available for comsumption. Consumers can then query thd ledger to discover what modules are available and then consume them. This allows for additional modules to be added and then consumed in realtime. 
+Imagine we have a dashboard that would like to consume any number of modules if it only knew what was available. By introducing a "ledger," modules can register themselves as available for consumption. Consumers can then query the ledger to discover what modules are available and then consume them. The ledger allows for additional modules to be added and then consumed in realtime.
 
 ### Module Health
 
 ![Module Health](apps/dashboard/src/assets/animations/03-module-health.gif)
 
-Now that we know how discover modules, how do we verify that they are indeed healthy and available to us? The ledger can monitor registered modules and if a module goes offline, it will detech this change and mark the module as unhealthy. Once the module is marked unhealthy, it will broadcast to the connected consumers that a module is offline so they can respond accordingly. 
+Now that we know how to discover modules, how do we verify that they are healthy and available? The ledger can monitor registered modules, and if a module goes offline, it will detect this change and mark the module as unhealthy. Once the module is marked unhealthy, it will broadcast to the connected consumers that a module is offline so they can respond accordingly.
 
 ### Module Inception
 
 ![Module Discovery](apps/dashboard/src/assets/animations/06-module-inception.gif)
 
-We can do some really interesting things but using federated modules to load federated modules. This presents some pretty compelling use cases that involve for dynamic feature composition and consumption from independent development sources. For instance, you could create a top-level module outlet for 3rd party vendors that your users can then dynamically load in modules from an ecosystem or marketplace at their discretion. 
+We can do some exciting things but using federated modules to load federated modules. This arrangement presents some pretty compelling use cases that involve dynamic feature composition and consumption from independent development sources. For instance, you could create a top-level module outlet for 3rd party vendors that your users can then dynamically load in modules from an ecosystem or marketplace at their discretion.
