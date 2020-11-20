@@ -56,8 +56,7 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "apps/ledger/webpack.prod.config.js"
+              ]
             }
           }
         },
@@ -66,13 +65,11 @@
           "options": {
             "browserTarget": "ledger:build",
             "proxyConfig": "apps/ledger/proxy.conf.json",
-            "extraWebpackConfig": "apps/ledger/webpack.config.js",
-            "port": 4200
+            "extraWebpackConfig": "apps/ledger/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ledger:build:production",
-              "extraWebpackConfig": "apps/ledger/webpack.prod.config.js"
+              "browserTarget": "ledger:build:production"
             }
           }
         },
@@ -264,8 +261,7 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "apps/dashboard/webpack.prod.config.js"
+              ]
             }
           }
         },
@@ -273,13 +269,11 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "dashboard:build",
-            "extraWebpackConfig": "apps/dashboard/webpack.config.js",
-            "port": 4201
+            "extraWebpackConfig": "apps/dashboard/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboard:build:production",
-              "extraWebpackConfig": "apps/dashboard/webpack.prod.config.js"
+              "browserTarget": "dashboard:build:production"
             }
           }
         },
@@ -391,8 +385,7 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "apps/primary/webpack.prod.config.js"
+              ]
             }
           }
         },
@@ -400,13 +393,11 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "primary:build",
-            "extraWebpackConfig": "apps/primary/webpack.config.js",
-            "port": 4202
+            "extraWebpackConfig": "apps/primary/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "primary:build:production",
-              "extraWebpackConfig": "apps/primary/webpack.propd.config.js"
+              "browserTarget": "primary:build:production"
             }
           }
         },
@@ -518,8 +509,7 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "apps/secondary/webpack.prod.config.js"
+              ]
             }
           }
         },
@@ -527,13 +517,11 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "secondary:build",
-            "extraWebpackConfig": "apps/secondary/webpack.config.js",
-            "port": 4203
+            "extraWebpackConfig": "apps/secondary/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "secondary:build:production",
-              "extraWebpackConfig": "apps/secondary/webpack.prod.config.js"
+              "browserTarget": "secondary:build:production"
             }
           }
         },
@@ -795,8 +783,7 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "apps/partner/webpack.prod.config.js"
+              ]
             }
           }
         },
@@ -804,13 +791,11 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "partner:build",
-            "extraWebpackConfig": "apps/partner/webpack.config.js",
-            "port": 4204
+            "extraWebpackConfig": "apps/partner/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "partner:build:production",
-              "extraWebpackConfig": "apps/partner/webpack.prod.config.js"
+              "browserTarget": "partner:build:production"
             }
           }
         },

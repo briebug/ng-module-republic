@@ -12,8 +12,7 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   allPublishedCells$: Observable<Cell[]> = this.cellsFacade.allPublishedCells$;
   links = [
-    { path: '/', icon: 'home', title: 'home' },
-    { path: '/dashboard', icon: 'home', title: 'Dashboard' },
+    { path: '/', icon: 'home', title: 'home' }
   ];
 
   constructor(

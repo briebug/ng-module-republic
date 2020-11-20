@@ -20,7 +20,7 @@ export function loadRemoteEntry(remoteEntry: string): Promise<void> {
       return;
     }
 
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = remoteEntry;
 
     script.onerror = reject;
@@ -38,7 +38,7 @@ async function lookupExposedModule<T>(
   remoteName: string,
   exposedModule: string
 ): Promise<T> {
-  await __webpack_init_sharing__("default");
+  await __webpack_init_sharing__('default');
   const container = window[remoteName] as Container;
 
   await container.init(__webpack_share_scopes__.default);
