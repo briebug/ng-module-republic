@@ -20,9 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.cellsFacade.loadCells();
     this.cellsFacade.initHealthChecks();
-    this.cellsSocketService.updateCellMutation$.subscribe(() => this.cellsFacade.loadCells());
-    this.cellsSocketService.deleteCellMutation$.subscribe(() => this.cellsFacade.loadCells());
-    this.cellsSocketService.createCellMutation$.subscribe(() => this.cellsFacade.loadCells());    
+    this.cellsSocketService.cellMutations$.subscribe(() => this.cellsFacade.loadCells());
   }
-
 }
