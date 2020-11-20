@@ -10,7 +10,7 @@ export class CellsSocketService {
   constructor(private socket: Socket) { }
 
   updateCellMutation$ = this.socket.fromEvent('update');
-  createCellMutation$ = this.socket.fromEvent('create')
+  createCellMutation$ = this.socket.fromEvent('create');
   deleteCellMutation$ = this.socket.fromEvent('delete');
 
   cellMutations$ = merge(
